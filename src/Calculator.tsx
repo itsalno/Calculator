@@ -12,13 +12,24 @@ function Calculator(){
         setInput((prevInput) => prevInput * 10 + number);
     };
 
+    const clearCalculator = () => {
+        setInput(0);
+        setPrevInput(0);
+        setOperator('');
+        setResult(0);
+    };
+
+    const handleOperatorClick=(operator:string)=>{
+        setPrevInput(currentinput);
+        setOperator(operator);
+        setInput(0);
+    };
+
 
     return(
         <>
             <div>
-                <input>
-
-                </input>
+                <input type="text" value={currentinput || result || operator} readOnly/>
             </div>
             <div>
                 <button onClick={() => handleNumberClick(1)}>1</button>
@@ -37,14 +48,14 @@ function Calculator(){
             </div>
             <div>
 
-                <button>+</button>
-                <button>-</button>
-                <button>*</button>
+                <button onClick={()=>handleOperatorClick('+')}>+</button>
+                <button onClick={()=>handleOperatorClick('-')}>-</button>
+                <button onClick={()=>handleOperatorClick('*')}>*</button>
             </div>
             <div>
 
             <button>=</button>
-                <button>C</button>
+                <button onClick={()=> clearCalculator()}>C</button>
 
             </div>
         </>

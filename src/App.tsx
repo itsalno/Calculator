@@ -10,6 +10,9 @@ function App() {
   return (
     <>
       <div>
+          <h1>
+              CALCULATOR
+          </h1>
         <Calculator/>
       </div>
 
